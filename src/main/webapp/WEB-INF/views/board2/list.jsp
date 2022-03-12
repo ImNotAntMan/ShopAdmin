@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -87,7 +88,10 @@
                                     			<td>${board.b_num}</td>
                                     			<td><a href="/board2/read?b_num=${board.b_num}&pageNum=${pageview.page.pageNum}">${board.b_subject}</a></td>
                                     			<td>
-                                    			<c:if test="${board.b_file != null}">
+                                    			<c:set var="string1" value="${board.b_file}" />
+                                    			<c:set var="length" value="${fn:length(string1)}" /> 
+                                    			<c:set var="string2" value="${fn:substring(string1, length -3, length)}" />
+												<c:if test="${board.b_file != null}">
                                     				<a href="/board2/download?b_num=${board.b_num}">${board.b_file}</a>
                                     			</c:if>
                                     			<c:if test="${board.b_file == null}">
