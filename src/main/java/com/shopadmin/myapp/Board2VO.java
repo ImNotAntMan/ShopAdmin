@@ -11,6 +11,7 @@ public class Board2VO {
 	private String b_name;
 	private String b_contents;
 	private String b_file;
+	private String b_filehash;
 	private Date b_date;
 
 }

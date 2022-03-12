@@ -11,8 +11,8 @@
 		select count(b_num) count from tblboard2
 	</select>
 	<insert id="insert">
-		insert into tblboard2 (b_subject, b_name, b_contents, b_file) 
-		values (#{b_subject}, #{b_name}, #{b_contents}, #{b_file})
+		insert into tblboard2 (b_subject, b_name, b_contents, b_file, b_filehash) 
+		values (#{b_subject}, #{b_name}, #{b_contents}, #{b_file}, #{b_filehash})
 	</insert>
 	<select id="read" resultType="com.shopadmin.myapp.Board2VO">
 		select * from tblboard2 where b_num = #{b_num}

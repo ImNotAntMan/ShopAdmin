@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.OutputStream;
 import java.util.Iterator;
 import java.util.List;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -87,7 +88,7 @@ public class Board2Controller {
 					if(fieldname.equals("b_subject")) {
 						board.setB_subject(fieldvalue);
 					} else if(fieldname.equals("b_name")) {
-						board.setB_name(fieldname);
+						board.setB_name(fieldvalue);
 					} else if(fieldname.equals("b_contents")) {
 						board.setB_contents(fieldvalue);
 					}
@@ -95,7 +96,14 @@ public class Board2Controller {
 					String fname = item.getName();
 					if(fname != "") {
 						board.setB_file(fname);
+			        	System.out.println("file name : " + fname);
+			        	String ext = fname.substring(fname.lastIndexOf(".") + 1);
+			        	fname = getUuid() + "." + ext;
+			        	board.setB_filehash(fname);
 						File file = new File(filepath + "/" + fname);	// 파일객체 생성
+			        	System.out.println("hash file : " + fname);
+			        	System.out.println("extension : " + ext);
+
 						item.write(file);						
 					}
 				}
@@ -111,8 +119,7 @@ public class Board2Controller {
 	public void download(HttpServletResponse response, Board2VO board) {
         try {
         	board = service.read(board);
-        	String path = "D:\\myWorkSpace\\runJsp\\pds\\" + board.getB_file();
-        	
+        	String path = "D:\\myWorkSpace\\runJsp\\pds\\" + board.getB_filehash();
 //        	File file = new File(path);
         	String filename = new String(board.getB_file().getBytes("UTF-8"), "ISO-8859-1");
 
@@ -127,5 +134,10 @@ public class Board2Controller {
         } catch (Exception e) {
         		System.out.println(e);
         }
+	}
+	
+	//uuid생성 
+	public static String getUuid() {
+		return UUID.randomUUID().toString().replaceAll("-", ""); 
 	}
 }
