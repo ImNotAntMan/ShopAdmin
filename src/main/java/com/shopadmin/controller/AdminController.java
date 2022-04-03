@@ -102,5 +102,20 @@ public class AdminController {
 		session.invalidate();//세션 끊기
 		return "redirect:/";
 	}
+	
+	@GetMapping("/sales")
+	public void chart() {
+		
+	}
+
+	@GetMapping("/charts")
+	public void charts() {
+		
+	}
+	
+	@GetMapping("/sales")
+	public void sales() {
+		
+	}
 
 }

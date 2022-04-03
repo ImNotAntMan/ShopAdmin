@@ -6,6 +6,9 @@
 	<select id="read" resultType="com.shopadmin.myapp.AdminVO">
 		select * from tbladmin where a_id = #{a_id}
 	</select>
+	<select id="salestotal" resultType="com.shopadmin.myapp.SalesDTO">
+		select * from tbladmin where a_id = #{a_id}
+	</select>
 	<select id="auth" resultType = "com.shopadmin.myapp.AdminVO">
 		select * from tbladmin where a_id = #{a_id} 
 		and a_passwd = hex(aes_encrypt(#{a_passwd}, sha2('202200309', 512))) 

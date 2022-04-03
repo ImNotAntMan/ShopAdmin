@@ -8,6 +8,10 @@
 <body>
 <p><a href="/admin/logout">로그아웃</a></p>
 <p><a href="/admin/login">로그인</a></p>
+<p><a href="/member/list">회원관리</a></p>
+<p><a href="/board2/list">자료실</a></p>
+<p><a href="/product/list">상품관리</a></p>
+<p><a href="/admin/sales">매출관리</a></p>
 <h1>
 	Shop Admin Hello world!  
 </h1>

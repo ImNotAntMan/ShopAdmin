@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.shopadmin.myapp.AdminVO;
 import com.shopadmin.myapp.PageDTO;
+import com.shopadmin.myapp.SalesDTO;
 
 public interface AdminMapper {
 
@@ -22,4 +23,6 @@ public interface AdminMapper {
 	public int getTotalCount();
 
 	public AdminVO read(String a_id);
+	
+	public List<SalesDTO> sales();
 }
