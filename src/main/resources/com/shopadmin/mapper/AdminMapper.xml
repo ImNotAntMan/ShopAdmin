@@ -7,7 +7,7 @@
 		select * from tbladmin where a_id = #{a_id}
 	</select>
 	<select id="sales" resultType="com.shopadmin.myapp.SalesDTO">
-		SELECT p.p_name, sum(os.os_cnt) * p.p_price as subtotal
+		SELECT p.p_name, sum(os.os_cnt) * p.p_price as subtotal, sum(os.os_cnt) as cnt
 			FROM tblordersub os, tblproduct p
 			where os.p_code = p.p_code 
 			GROUP BY p.p_code

@@ -358,7 +358,7 @@ var myLineChart = new Chart(ctx, {
   data: {
     labels: [
     	<c:forEach items="${sales}" var="listVar" varStatus="status">
-    		"<c:out value='${listVar.p_name}'/>"
+    		"<c:out value='${listVar.p_name}(${listVar.cnt}개)'/>"
     		<c:if test="${not status.last}">,</c:if>
 	   	</c:forEach>
     	],
@@ -458,7 +458,7 @@ var myBarChart = new Chart(ctx, {
   data: {
     labels: [
     	<c:forEach items="${sales}" var="listVar" varStatus="status">
-			"<c:out value='${listVar.p_name}'/>"
+			"<c:out value='${listVar.p_name}(${listVar.cnt}개)'/>"
 			<c:if test="${not status.last}">,</c:if>
 	   	</c:forEach>
     	],
@@ -507,7 +507,7 @@ var myBarChart = new Chart(ctx, {
           padding: 10,
           // Include a dollar sign in the ticks
           callback: function(value, index, values) {
-            return '$' + number_format(value);
+            return number_format(value) + '원';
           }
         },
         gridLines: {
@@ -551,7 +551,7 @@ var myPieChart = new Chart(ctx, {
   data: {
     labels: [
     	<c:forEach items="${sales}" var="listVar" varStatus="status">
-			"<c:out value='${listVar.p_name}'/>"
+			"<c:out value='${listVar.p_name}(${listVar.cnt}개)'/>"
 		<c:if test="${not status.last}">,</c:if>
    	</c:forEach>
     	],

@@ -6,6 +6,7 @@ import lombok.Data;
 public class SalesDTO {
 
 	public int subtotal;
+	public int cnt;
 	public String p_name;
 
 }
