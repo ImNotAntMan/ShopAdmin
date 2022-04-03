@@ -32,7 +32,12 @@ var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    labels: [
+        	<c:forEach items="${sales}" var="listVar" varStatus="status">
+            	"<c:out value='${listVar.p_name}'/>"
+            	<c:if test="${not status.last}">,</c:if>
+	       	</c:forEach>
+    ],
     datasets: [{
       label: "Earnings",
       lineTension: 0.3,

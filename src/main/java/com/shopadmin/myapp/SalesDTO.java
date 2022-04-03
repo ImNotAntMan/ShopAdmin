@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class SalesDTO {
 
-	public int salessum;
-	public int p_name;
+	public int subtotal;
+	public String p_name;
 
 }

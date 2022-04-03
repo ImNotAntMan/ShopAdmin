@@ -6,8 +6,17 @@
 	<select id="read" resultType="com.shopadmin.myapp.AdminVO">
 		select * from tbladmin where a_id = #{a_id}
 	</select>
-	<select id="salestotal" resultType="com.shopadmin.myapp.SalesDTO">
-		select * from tbladmin where a_id = #{a_id}
+	<select id="sales" resultType="com.shopadmin.myapp.SalesDTO">
+		SELECT p.p_name, sum(os.os_cnt) * p.p_price as subtotal
+			FROM tblordersub os, tblproduct p
+			where os.p_code = p.p_code 
+			GROUP BY p.p_code
+	</select>
+	<select id="salesmonthly" resultType="com.shopadmin.myapp.SalesDTO">
+		SELECT p.p_name, sum(os.os_cnt) * p.p_price as subtotal
+			FROM tblordersub os, tblproduct p
+			where os.p_code = p.p_code
+			GROUP BY p.p_code order by p.p_code
 	</select>
 	<select id="auth" resultType = "com.shopadmin.myapp.AdminVO">
 		select * from tbladmin where a_id = #{a_id} 

@@ -1,5 +1,7 @@
 package com.shopadmin.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.shopadmin.myapp.AdminVO;
 import com.shopadmin.myapp.PageDTO;
 import com.shopadmin.myapp.PageViewDTO;
+import com.shopadmin.myapp.SalesDTO;
 import com.shopadmin.service.AdminService;
 
 import lombok.Setter;
@@ -103,19 +106,18 @@ public class AdminController {
 		return "redirect:/";
 	}
 	
-	@GetMapping("/sales")
-	public void chart() {
-		
-	}
-
 	@GetMapping("/charts")
-	public void charts() {
-		
+	public void charts(Model model) {
+		List<SalesDTO> sales = service.sales();
+		model.addAttribute("sales", sales);			
 	}
 	
 	@GetMapping("/sales")
-	public void sales() {
-		
+	public void sales(Model model) {
+		List<SalesDTO> sales = service.sales();
+		log.info(sales);
+		model.addAttribute("sales", sales);
+		model.addAttribute("subtotal", sales);	
 	}
 
 }

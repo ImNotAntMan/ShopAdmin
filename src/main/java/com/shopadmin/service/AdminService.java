@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.shopadmin.myapp.AdminVO;
 import com.shopadmin.myapp.PageDTO;
+import com.shopadmin.myapp.SalesDTO;
 
 public interface AdminService {
 	public List<AdminVO> getList(PageDTO page);
@@ -21,4 +22,6 @@ public interface AdminService {
 	public Boolean auth(AdminVO admin);
 	
 	public int getTotalCount();
+	
+	public List<SalesDTO> sales();
 }

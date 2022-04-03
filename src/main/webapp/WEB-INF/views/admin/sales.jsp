@@ -48,7 +48,7 @@
 </head>
 
 <body id="page-top">
-<div>
+<div height="100" width="100">
 	HEY
 	<canvas id="myChart" width="440" height="440"></canvas>
 </div>
@@ -56,12 +56,23 @@
 <script>
 const ctx = document.getElementById('myChart');
 const myChart = new Chart(ctx, {
-    type: 'pie',
+    type: 'line',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: [
+        	<c:forEach items="${sales}" var="listVar" varStatus="status">
+            	"<c:out value='${listVar.p_name}'/>"
+            	<c:if test="${not status.last}">,</c:if>
+	       	</c:forEach>
+	       	],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: '매출',
+            data: [
+            	<c:forEach items="${sales}" var="listVar" varStatus="status">
+	            	"<c:out value='${listVar.subtotal}'/>"
+            	<c:if test="${not status.last}">,</c:if>
+	       	</c:forEach>
+
+            	],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

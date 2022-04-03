@@ -161,6 +161,16 @@ select om.om_code, om.m_id, os.p_code, os.os_cnt ,
 	and om.om_code = 
 	(select om_code from tblordermain where m_id = 'tiger'
 	order by om_code desc limit 1);
+	
+/* 상품별 판매 내역 */
+SELECT os.p_code , p.p_name, 
+	SUM(os_cnt) as cnt, p.p_price, 
+	sum(os.os_cnt) * p.p_price as subtotal
+	FROM tblordersub os, tblproduct p
+	where os.p_code = p.p_code
+	GROUP BY p_code order by p_code;	
+
+select * from tblordersub order by p_code;
 
 /* tiger 가 최근에 구매한 금액 총 합계 조회 */
 	

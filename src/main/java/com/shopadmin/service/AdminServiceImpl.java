@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.shopadmin.mapper.AdminMapper;
 import com.shopadmin.myapp.AdminVO;
 import com.shopadmin.myapp.PageDTO;
+import com.shopadmin.myapp.SalesDTO;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -69,5 +70,10 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public int getTotalCount() {
 		return mapper.getTotalCount();
+	}
+	
+	@Override
+	public List<SalesDTO> sales() {
+		return mapper.sales();
 	}
 }
