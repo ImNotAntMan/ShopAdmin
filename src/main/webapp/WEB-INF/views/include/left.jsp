@@ -41,7 +41,7 @@
                         <a class="collapse-item" href="/member/list">회원관리</a>
                         <a class="collapse-item" href="/board2/list">자료실관리</a>
                         <a class="collapse-item" href="/product/list">상품관리</a>
-                        <a class="collapse-item" href="/admin/sales">매출관리</a>
+                        <a class="collapse-item" href="/admin/charts">매출관리</a>
                     </div>
                 </div>
             </li>
